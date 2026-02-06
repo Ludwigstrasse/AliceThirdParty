@@ -1,0 +1,57 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "occt-debug",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/occt/Debug",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_CHAINLOAD_TOOLCHAIN_FILE": "${sourceDir}/cmake/toolchains/msvc2022-x64-md.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows",
+
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/msvc2022-x64-md/Debug",
+        "BUILD_SHARED_LIBS": "ON",
+
+        "USE_OPENGL": "ON",
+        "USE_GLES2": "OFF",
+        "USE_TBB": "ON",
+        "USE_FREETYPE": "ON",
+
+        "BUILD_TESTING": "OFF"
+      }
+    },
+    {
+      "name": "occt-release",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/occt/Release",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_CHAINLOAD_TOOLCHAIN_FILE": "${sourceDir}/cmake/toolchains/msvc2022-x64-md.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows",
+
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/msvc2022-x64-md/Release",
+        "BUILD_SHARED_LIBS": "ON",
+
+        "USE_OPENGL": "ON",
+        "USE_GLES2": "OFF",
+        "USE_TBB": "ON",
+        "USE_FREETYPE": "ON",
+
+        "BUILD_TESTING": "OFF"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "occt-build-debug",
+      "configurePreset": "occt-debug",
+      "configuration": "Debug"
+    },
+    {
+      "name": "occt-build-release",
+      "configurePreset": "occt-release",
+      "configuration": "Release"
+    }
+  ]
+}

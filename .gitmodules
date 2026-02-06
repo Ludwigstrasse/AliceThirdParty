@@ -1,0 +1,6 @@
+[submodule "extern/vcpkg"]
+	path = extern/vcpkg
+	url = git@github.com:Ludwigstrasse/vcpkg.git
+[submodule "extern/OCCT"]
+	path = extern/OCCT
+	url = git@github.com:Ludwigstrasse/OCCT.git

@@ -1,0 +1,8 @@
+{
+  "name": "alice-thirdparty",
+  "version-string": "0.1.0",
+  "dependencies": [
+    "tbb",
+    "freetype"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "occt-win-debug",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/occt/win/Debug",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/msvc2022-x64-md/Debug",
+        "BUILD_LIBRARY_TYPE": "Shared",
+        "BUILD_TESTING": "OFF",
+        "USE_OPENGL": "ON",
+        "USE_TBB": "ON",
+        "USE_FREETYPE": "ON"
+      }
+    },
+    {
+      "name": "occt-win-release",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/occt/win/Release",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/msvc2022-x64-md/Release",
+        "BUILD_LIBRARY_TYPE": "Shared",
+        "BUILD_TESTING": "OFF",
+        "USE_OPENGL": "ON",
+        "USE_TBB": "ON",
+        "USE_FREETYPE": "ON"
+      }
+    },
+    {
+      "name": "occt-linux-debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/occt/linux/Debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-linux",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/linux-x64/Debug",
+        "BUILD_LIBRARY_TYPE": "Shared",
+        "BUILD_TESTING": "OFF",
+        "USE_OPENGL": "ON",
+        "USE_TBB": "ON",
+        "USE_FREETYPE": "ON"
+      }
+    },
+    {
+      "name": "occt-linux-release",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/occt/linux/Release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-linux",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/linux-x64/Release",
+        "BUILD_LIBRARY_TYPE": "Shared",
+        "BUILD_TESTING": "OFF",
+        "USE_OPENGL": "ON",
+        "USE_TBB": "ON",
+        "USE_FREETYPE": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "occt-win-build-debug", "configurePreset": "occt-win-debug", "configuration": "Debug" },
+    { "name": "occt-win-build-release", "configurePreset": "occt-win-release", "configuration": "Release" },
+    { "name": "occt-linux-build-debug", "configurePreset": "occt-linux-debug" },
+    { "name": "occt-linux-build-release", "configurePreset": "occt-linux-release" }
+  ]
+}

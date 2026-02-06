@@ -1,0 +1,7 @@
+{
+  "default-registry": {
+    "kind": "git",
+    "repository": "https://github.com/Ludwigstrasse/vcpkg.git",
+    "baseline": "15e5f3820f0370f1ba7150853762cec0688cd396"
+  }
+}

@@ -1,0 +1,11 @@
+/build/
+/install/
+/vcpkg_installed/
+/.vs/
+**/.cache/
+**/CMakeFiles/
+**/CMakeCache.txt
+**/*.user
+**/*.suo
+**/*.VC.db
+
