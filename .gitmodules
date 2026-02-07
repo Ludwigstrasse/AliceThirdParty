@@ -4,3 +4,6 @@
 [submodule "extern/OCCT"]
 	path = extern/OCCT
 	url = git@github.com:Ludwigstrasse/OCCT.git
+[submodule "extern/ogre"]
+	path = extern/ogre
+	url = git@github.com:Ludwigstrasse/ogre.git
