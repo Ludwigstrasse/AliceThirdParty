@@ -2,5 +2,11 @@
   "name": "alice-thirdparty",
   "version-string": "0.1.0",
   "dependencies": [
+    "zlib",
+    "libpng",
+    "jpeg-turbo",
+    "tiff",
+    "freetype",
+    "expat"
   ]
 }

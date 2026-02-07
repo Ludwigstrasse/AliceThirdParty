@@ -1,36 +1,27 @@
 @echo off
 setlocal
 
-rem ---- Normalize ROOT to absolute path
-for %%I in ("%~dp0..") do set "ROOT=%%~fI"
-set "VCPKG=%ROOT%\extern\vcpkg"
-
+rem Usage: bootstrap-vcpkg.bat <triplet> <manifest_dir>
 set "TRIPLET=%~1"
 if "%TRIPLET%"=="" set "TRIPLET=x64-windows"
-
-if not exist "%VCPKG%\vcpkg.exe" (
-  echo [TP] vcpkg.exe not found, bootstrapping...
-  if not exist "%VCPKG%\bootstrap-vcpkg.bat" (
-    echo [ERR] vcpkg submodule not found: %VCPKG%
-    echo       Run: git submodule update --init --recursive
-    exit /b 1
-  )
-  pushd "%VCPKG%"
-  call bootstrap-vcpkg.bat -disableMetrics
-  popd
-)
-
-if not exist "%VCPKG%\vcpkg.exe" (
-  echo [ERR] vcpkg bootstrap failed: %VCPKG%\vcpkg.exe not generated.
+set "MANIFEST=%~2"
+if "%MANIFEST%"=="" (
+  echo [ERR] manifest_dir is required. e.g. manifest\occt
   exit /b 1
 )
 
-echo [TP] vcpkg version:
-"%VCPKG%\vcpkg.exe" version
+for %%I in ("%~dp0..") do set "ROOT=%%~fI"
+set "VCPKG=%ROOT%\extern\vcpkg\vcpkg.exe"
 
-echo [TP] vcpkg install (manifest) ...
-"%VCPKG%\vcpkg.exe" install --triplet "%TRIPLET%" --x-manifest-root="%ROOT%"
+if not exist "%VCPKG%" (
+  echo [ERR] vcpkg.exe not found: %VCPKG%
+  exit /b 1
+)
+
+echo [VCPKG] triplet=%TRIPLET%
+echo [VCPKG] manifest=%MANIFEST%
+
+"%VCPKG%" install --triplet "%TRIPLET%" --x-manifest-root="%MANIFEST%"
 if errorlevel 1 exit /b 1
 
-echo [OK] vcpkg install done. triplet=%TRIPLET%
 exit /b 0

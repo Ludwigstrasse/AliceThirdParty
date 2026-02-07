@@ -3,28 +3,22 @@ set -eu
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 OCCT_SRC="$ROOT/extern/occt"
-VCPKG="$ROOT/extern/vcpkg"
-
 CFG="${1:-Release}"
 TRIPLET="${2:-x64-linux}"
 
-if [ "$CFG" = "Debug" ]; then
-  INSTALL_PREFIX="$ROOT/install/linux-x64/Debug"
-  BUILD_TYPE="Debug"
-else
-  INSTALL_PREFIX="$ROOT/install/linux-x64/Release"
-  BUILD_TYPE="Release"
-fi
-
+PLATFORM="linux-x64"
+INSTALL_PREFIX="$ROOT/install/$PLATFORM/$CFG/occt"
 BUILD_DIR="$ROOT/build/occt/linux/$CFG"
 
-sh "$ROOT/scripts/bootstrap-vcpkg.sh" "$TRIPLET"
+[ -f "$OCCT_SRC/CMakeLists.txt" ] || { echo "[ERR] OCCT source not found: $OCCT_SRC" >&2; exit 1; }
+
+sh "$ROOT/scripts/bootstrap-vcpkg.sh" "$TRIPLET" "manifests/occt"
 
 cmake -S "$OCCT_SRC" -B "$BUILD_DIR" -G Ninja \
-  -DCMAKE_BUILD_TYPE="$BUILD_TYPE" \
-  -DCMAKE_TOOLCHAIN_FILE="$VCPKG/scripts/buildsystems/vcpkg.cmake" \
+  -DCMAKE_BUILD_TYPE="$CFG" \
+  -DCMAKE_TOOLCHAIN_FILE="$ROOT/extern/vcpkg/scripts/buildsystems/vcpkg.cmake" \
   -DVCPKG_TARGET_TRIPLET="$TRIPLET" \
-  -DVCPKG_MANIFEST_DIR="$ROOT" \
+  -DVCPKG_MANIFEST_DIR="$ROOT/manifests/occt" \
   -DCMAKE_INSTALL_PREFIX="$INSTALL_PREFIX" \
   -DBUILD_LIBRARY_TYPE=Shared \
   -DBUILD_TESTING=OFF \
@@ -33,5 +27,4 @@ cmake -S "$OCCT_SRC" -B "$BUILD_DIR" -G Ninja \
   -DUSE_FREETYPE=ON
 
 cmake --build "$BUILD_DIR" --target install
-
-echo "[OK] OCCT built and installed to: $INSTALL_PREFIX"
+echo "[OK] OCCT installed: $INSTALL_PREFIX"

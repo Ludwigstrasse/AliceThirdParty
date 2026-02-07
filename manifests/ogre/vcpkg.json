@@ -2,5 +2,9 @@
   "name": "alice-thirdparty",
   "version-string": "0.1.0",
   "dependencies": [
+    "zlib",
+    "zziplib",
+    "freeimage",
+    "pugixml"
   ]
 }

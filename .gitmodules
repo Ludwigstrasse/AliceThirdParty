@@ -7,3 +7,15 @@
 [submodule "extern/ogre"]
 	path = extern/ogre
 	url = git@github.com:Ludwigstrasse/ogre.git
+[submodule "extern/Skylark"]
+	path = extern/Skylark
+	url = git@github.com:Ludwigstrasse/Skylark.git
+[submodule "extern/VTK"]
+	path = extern/VTK
+	url = git@github.com:Ludwigstrasse/VTK.git
+[submodule "extern/OpenSceneGraph"]
+	path = extern/OpenSceneGraph
+	url = git@github.com:Ludwigstrasse/OpenSceneGraph.git
+[submodule "extern/IfcOpenShell"]
+	path = extern/IfcOpenShell
+	url = git@github.com:Ludwigstrasse/IfcOpenShell.git

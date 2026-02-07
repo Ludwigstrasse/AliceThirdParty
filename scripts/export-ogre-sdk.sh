@@ -12,7 +12,7 @@ PLATFORM="linux-x64"
 TRIPLET="x64-linux"
 CFG_DIR="$CFG"
 
-PKG="occt"
+PKG="ogre"
 
 # Prefer per-package install prefix
 SRC_PREFIX="$TP_ROOT/install/$PLATFORM/$CFG_DIR/$PKG"

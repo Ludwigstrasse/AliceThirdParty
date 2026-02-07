@@ -1,12 +1,10 @@
-rem Execute Method:scripts\export-occt-sdk.bat Debug
-
 @echo off
 setlocal
 
 rem ===== Resolve AliceThirdParty root (this script's parent) =====
 for %%I in ("%~dp0..") do set "TP_ROOT=%%~fI"
 
-rem ===== Args =====
+rem ===== Args (keep same convention as original export-occt-sdk.bat) =====
 set "CFG=%~1"
 if "%CFG%"=="" set "CFG=Release"
 
@@ -29,7 +27,7 @@ set "CFG_DIR=Release"
 if /I "%CFG%"=="Debug" set "CFG_DIR=Debug"
 
 rem ===== Package =====
-set "PKG=occt"
+set "PKG=skylark"
 
 rem ===== Sources (prefer per-package install prefix) =====
 set "SRC_PREFIX=%TP_ROOT%\install\%PLATFORM%\%CFG_DIR%\%PKG%"

@@ -1,5 +1,3 @@
-rem Execute Method:scripts\export-occt-sdk.bat Debug
-
 @echo off
 setlocal
 
@@ -29,7 +27,7 @@ set "CFG_DIR=Release"
 if /I "%CFG%"=="Debug" set "CFG_DIR=Debug"
 
 rem ===== Package =====
-set "PKG=occt"
+set "PKG=ogre"
 
 rem ===== Sources (prefer per-package install prefix) =====
 set "SRC_PREFIX=%TP_ROOT%\install\%PLATFORM%\%CFG_DIR%\%PKG%"

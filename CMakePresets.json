@@ -8,8 +8,8 @@
       "cacheVariables": {
         "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
         "VCPKG_TARGET_TRIPLET": "x64-windows",
-        "VCPKG_MANIFEST_DIR": "${sourceDir}",
-        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/msvc2022-x64-md/Debug",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/occt",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/msvc2022-x64-md/Debug/occt",
         "BUILD_LIBRARY_TYPE": "Shared",
         "BUILD_TESTING": "OFF",
         "USE_OPENGL": "ON",
@@ -24,8 +24,8 @@
       "cacheVariables": {
         "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
         "VCPKG_TARGET_TRIPLET": "x64-windows",
-        "VCPKG_MANIFEST_DIR": "${sourceDir}",
-        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/msvc2022-x64-md/Release",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/occt",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/msvc2022-x64-md/Release/occt",
         "BUILD_LIBRARY_TYPE": "Shared",
         "BUILD_TESTING": "OFF",
         "USE_OPENGL": "ON",
@@ -41,8 +41,8 @@
         "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
         "VCPKG_TARGET_TRIPLET": "x64-linux",
-        "VCPKG_MANIFEST_DIR": "${sourceDir}",
-        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/linux-x64/Debug",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/occt",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/linux-x64/Debug/occt",
         "BUILD_LIBRARY_TYPE": "Shared",
         "BUILD_TESTING": "OFF",
         "USE_OPENGL": "ON",
@@ -58,13 +58,277 @@
         "CMAKE_BUILD_TYPE": "Release",
         "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
         "VCPKG_TARGET_TRIPLET": "x64-linux",
-        "VCPKG_MANIFEST_DIR": "${sourceDir}",
-        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/linux-x64/Release",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/occt",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/linux-x64/Release/occt",
         "BUILD_LIBRARY_TYPE": "Shared",
         "BUILD_TESTING": "OFF",
         "USE_OPENGL": "ON",
         "USE_TBB": "ON",
         "USE_FREETYPE": "ON"
+      }
+    },
+    {
+      "name": "ogre-win-debug",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/ogre/win/Debug",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/ogre",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/msvc2022-x64-md/Debug/ogre",
+        "BUILD_SHARED_LIBS": "ON",
+        "OGRE_BUILD_SAMPLES": "OFF",
+        "OGRE_BUILD_TESTS": "OFF",
+        "OGRE_BUILD_TOOLS": "OFF",
+        "OGRE_BUILD_COMPONENT_BITES": "OFF",
+        "OGRE_BUILD_COMPONENT_OVERLAY": "OFF",
+        "OGRE_BUILD_RENDERSYSTEM_GL3PLUS": "ON",
+        "OGRE_BUILD_RENDERSYSTEM_D3D11": "OFF",
+        "OGRE_BUILD_RENDERSYSTEM_VULKAN": "OFF",
+        "OGRE_BUILD_DEPENDENCIES": "OFF"
+      }
+    },
+    {
+      "name": "ogre-win-release",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/ogre/win/Release",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/ogre",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/msvc2022-x64-md/Release/ogre",
+        "BUILD_SHARED_LIBS": "ON",
+        "OGRE_BUILD_SAMPLES": "OFF",
+        "OGRE_BUILD_TESTS": "OFF",
+        "OGRE_BUILD_TOOLS": "OFF",
+        "OGRE_BUILD_COMPONENT_BITES": "OFF",
+        "OGRE_BUILD_COMPONENT_OVERLAY": "OFF",
+        "OGRE_BUILD_RENDERSYSTEM_GL3PLUS": "ON",
+        "OGRE_BUILD_RENDERSYSTEM_D3D11": "OFF",
+        "OGRE_BUILD_RENDERSYSTEM_VULKAN": "OFF",
+        "OGRE_BUILD_DEPENDENCIES": "OFF"
+      }
+    },
+    {
+      "name": "ogre-linux-debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/ogre/linux/Debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-linux",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/ogre",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/linux-x64/Debug/ogre",
+        "BUILD_SHARED_LIBS": "ON",
+        "OGRE_BUILD_SAMPLES": "OFF",
+        "OGRE_BUILD_TESTS": "OFF",
+        "OGRE_BUILD_TOOLS": "OFF",
+        "OGRE_BUILD_COMPONENT_BITES": "OFF",
+        "OGRE_BUILD_COMPONENT_OVERLAY": "OFF",
+        "OGRE_BUILD_RENDERSYSTEM_GL3PLUS": "ON",
+        "OGRE_BUILD_RENDERSYSTEM_VULKAN": "OFF",
+        "OGRE_BUILD_DEPENDENCIES": "OFF"
+      }
+    },
+    {
+      "name": "ogre-linux-release",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/ogre/linux/Release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-linux",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/ogre",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/linux-x64/Release/ogre",
+        "BUILD_SHARED_LIBS": "ON",
+        "OGRE_BUILD_SAMPLES": "OFF",
+        "OGRE_BUILD_TESTS": "OFF",
+        "OGRE_BUILD_TOOLS": "OFF",
+        "OGRE_BUILD_COMPONENT_BITES": "OFF",
+        "OGRE_BUILD_COMPONENT_OVERLAY": "OFF",
+        "OGRE_BUILD_RENDERSYSTEM_GL3PLUS": "ON",
+        "OGRE_BUILD_RENDERSYSTEM_VULKAN": "OFF",
+        "OGRE_BUILD_DEPENDENCIES": "OFF"
+      }
+    },
+    {
+      "name": "osg-win-debug",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/osg/win/Debug",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/osg",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/msvc2022-x64-md/Debug/osg",
+        "BUILD_SHARED_LIBS": "ON",
+        "OSG_BUILD_EXAMPLES": "OFF",
+        "OSG_BUILD_APPLICATIONS": "OFF",
+        "OSG_BUILD_TESTS": "OFF"
+      }
+    },
+    {
+      "name": "osg-win-release",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/osg/win/Release",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/osg",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/msvc2022-x64-md/Release/osg",
+        "BUILD_SHARED_LIBS": "ON",
+        "OSG_BUILD_EXAMPLES": "OFF",
+        "OSG_BUILD_APPLICATIONS": "OFF",
+        "OSG_BUILD_TESTS": "OFF"
+      }
+    },
+    {
+      "name": "osg-linux-debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/osg/linux/Debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-linux",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/osg",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/linux-x64/Debug/osg",
+        "BUILD_SHARED_LIBS": "ON",
+        "OSG_BUILD_EXAMPLES": "OFF",
+        "OSG_BUILD_APPLICATIONS": "OFF",
+        "OSG_BUILD_TESTS": "OFF"
+      }
+    },
+    {
+      "name": "osg-linux-release",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/osg/linux/Release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-linux",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/osg",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/linux-x64/Release/osg",
+        "BUILD_SHARED_LIBS": "ON",
+        "OSG_BUILD_EXAMPLES": "OFF",
+        "OSG_BUILD_APPLICATIONS": "OFF",
+        "OSG_BUILD_TESTS": "OFF"
+      }
+    },
+
+    {
+      "name": "vtk-win-debug",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/vtk/win/Debug",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/vtk",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/msvc2022-x64-md/Debug/vtk",
+        "BUILD_SHARED_LIBS": "ON",
+        "VTK_BUILD_TESTING": "OFF",
+        "VTK_BUILD_EXAMPLES": "OFF",
+        "VTK_WRAP_PYTHON": "OFF",
+        "VTK_ENABLE_WRAPPING": "OFF",
+        "VTK_GROUP_ENABLE_Qt": "NO"
+      }
+    },
+    {
+      "name": "vtk-win-release",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/vtk/win/Release",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/vtk",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/msvc2022-x64-md/Release/vtk",
+        "BUILD_SHARED_LIBS": "ON",
+        "VTK_BUILD_TESTING": "OFF",
+        "VTK_BUILD_EXAMPLES": "OFF",
+        "VTK_WRAP_PYTHON": "OFF",
+        "VTK_ENABLE_WRAPPING": "OFF",
+        "VTK_GROUP_ENABLE_Qt": "NO"
+      }
+    },
+    {
+      "name": "vtk-linux-debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/vtk/linux/Debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-linux",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/vtk",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/linux-x64/Debug/vtk",
+        "BUILD_SHARED_LIBS": "ON",
+        "VTK_BUILD_TESTING": "OFF",
+        "VTK_BUILD_EXAMPLES": "OFF",
+        "VTK_WRAP_PYTHON": "OFF",
+        "VTK_ENABLE_WRAPPING": "OFF",
+        "VTK_GROUP_ENABLE_Qt": "NO"
+      }
+    },
+    {
+      "name": "vtk-linux-release",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/vtk/linux/Release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-linux",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/vtk",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/linux-x64/Release/vtk",
+        "BUILD_SHARED_LIBS": "ON",
+        "VTK_BUILD_TESTING": "OFF",
+        "VTK_BUILD_EXAMPLES": "OFF",
+        "VTK_WRAP_PYTHON": "OFF",
+        "VTK_ENABLE_WRAPPING": "OFF",
+        "VTK_GROUP_ENABLE_Qt": "NO"
+      }
+    },
+
+    {
+      "name": "skylark-win-debug",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/skylark/win/Debug",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/skylark",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/msvc2022-x64-md/Debug/skylark"
+      }
+    },
+    {
+      "name": "skylark-win-release",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/skylark/win/Release",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/skylark",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/msvc2022-x64-md/Release/skylark"
+      }
+    },
+    {
+      "name": "skylark-linux-debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/skylark/linux/Debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-linux",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/skylark",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/linux-x64/Debug/skylark"
+      }
+    },
+    {
+      "name": "skylark-linux-release",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/skylark/linux/Release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/extern/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-linux",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/manifest/skylark",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/linux-x64/Release/skylark"
       }
     }
   ],
@@ -72,6 +336,27 @@
     { "name": "occt-win-build-debug", "configurePreset": "occt-win-debug", "configuration": "Debug" },
     { "name": "occt-win-build-release", "configurePreset": "occt-win-release", "configuration": "Release" },
     { "name": "occt-linux-build-debug", "configurePreset": "occt-linux-debug" },
-    { "name": "occt-linux-build-release", "configurePreset": "occt-linux-release" }
+    { "name": "occt-linux-build-release", "configurePreset": "occt-linux-release" },
+
+    { "name": "ogre-win-build-debug", "configurePreset": "ogre-win-debug", "configuration": "Debug" },
+    { "name": "ogre-win-build-release", "configurePreset": "ogre-win-release", "configuration": "Release" },
+    { "name": "ogre-linux-build-debug", "configurePreset": "ogre-linux-debug" },
+    { "name": "ogre-linux-build-release", "configurePreset": "ogre-linux-release" },
+
+    { "name": "osg-win-build-debug", "configurePreset": "osg-win-debug", "configuration": "Debug" },
+    { "name": "osg-win-build-release", "configurePreset": "osg-win-release", "configuration": "Release" },
+    { "name": "osg-linux-build-debug", "configurePreset": "osg-linux-debug" },
+    { "name": "osg-linux-build-release", "configurePreset": "osg-linux-release" },
+
+    { "name": "vtk-win-build-debug", "configurePreset": "vtk-win-debug", "configuration": "Debug" },
+    { "name": "vtk-win-build-release", "configurePreset": "vtk-win-release", "configuration": "Release" },
+    { "name": "vtk-linux-build-debug", "configurePreset": "vtk-linux-debug" },
+    { "name": "vtk-linux-build-release", "configurePreset": "vtk-linux-release" },
+
+    { "name": "skylark-win-build-debug", "configurePreset": "skylark-win-debug", "configuration": "Debug" },
+    { "name": "skylark-win-build-release", "configurePreset": "skylark-win-release", "configuration": "Release" },
+    { "name": "skylark-linux-build-debug", "configurePreset": "skylark-linux-debug" },
+    { "name": "skylark-linux-build-release", "configurePreset": "skylark-linux-release" }
   ]
+
 }
