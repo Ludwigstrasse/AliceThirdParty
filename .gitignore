@@ -8,4 +8,8 @@
 **/*.user
 **/*.suo
 **/*.VC.db
-
+/manifests/occt/vcpkg_installed/
+/manifests/ogre/vcpkg_installed/
+/manifests/osg/vcpkg_installed/
+/manifests/skylark/vcpkg_installed/
+/manifests/vtk/vcpkg_installed/
