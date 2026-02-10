@@ -38,6 +38,13 @@ endif()
 set(ALICE_OCCT_ZLIB_FIXUP_DONE TRUE)
 
 function(alice_occt_fixup_zlib)
+  # Allow modifying targets defined in subdirectories.
+  # Otherwise CMake errors: "target ... is not built in this directory".
+  if(POLICY CMP0079)
+    cmake_policy(PUSH)
+    cmake_policy(SET CMP0079 NEW)
+  endif()
+
   find_package(ZLIB QUIET)
 
   foreach(tgt IN ITEMS TKDraw DRAWEXE)
@@ -50,6 +57,10 @@ function(alice_occt_fixup_zlib)
       endif()
     endif()
   endforeach()
+
+  if(POLICY CMP0079)
+    cmake_policy(POP)
+  endif()
 endfunction()
 
 # Defer until after subdirectories/targets are defined (requires CMake >= 3.19)
@@ -67,6 +78,7 @@ cmake -S "$OCCT_SRC" -B "$BUILD_DIR" -G Ninja \
   -DVCPKG_MANIFEST_DIR="$ROOT/manifests/occt" \
   -DCMAKE_INSTALL_PREFIX="$INSTALL_PREFIX" \
   -DCMAKE_PROJECT_INCLUDE="$OCCT_FIXUP_CMAKE" \
+  -DCMAKE_POLICY_DEFAULT_CMP0079=NEW \
   -DBUILD_LIBRARY_TYPE=Shared \
   -DBUILD_TESTING=OFF \
   -DUSE_OPENGL=ON \
