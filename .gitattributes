@@ -1,0 +1,11 @@
+# Keep shell scripts LF on all platforms (GitHub Actions Ubuntu requires this)
+*.sh text eol=lf
+
+# Keep Windows batch scripts CRLF for readability on Windows
+*.bat text eol=crlf
+
+# Text defaults
+*.cmake text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
