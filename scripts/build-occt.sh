@@ -2,7 +2,7 @@
 set -eu
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-OCCT_SRC="$ROOT/extern/occt"
+OCCT_SRC="$ROOT/extern/OCCT"
 CFG="${1:-Release}"
 TRIPLET="${2:-x64-linux}"
 
